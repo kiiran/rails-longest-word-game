@@ -1,0 +1,18 @@
+<h3>******** Now your result ********</h3>
+<% @valid ? @message = "Nice!" : @message = "DENIED!" %>
+<% end_time = Time.now.to_i %>
+<% time = end_time - @start_time.to_i %>
+<p>Your word: <%= @answer %><p>
+<p>Time: <%= time %> seconds<p>
+<p>Translation: <%= @translation %><p>
+<p>Your score:
+  <% if @valid %>
+    <%= (@answer.length * 100) / time %>
+  <% else %>
+    <%= "0" %>
+  <% end %>
+<p>
+<p>Message: <%= @message %><p>
+<h3>*****************************************************</h3>
+
+<%= link_to 'New game', game_path %>

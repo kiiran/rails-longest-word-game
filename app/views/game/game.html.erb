@@ -1,0 +1,19 @@
+<h3>******** Welcome to the longest-word game! ********</h3>
+<p>Here is your grid :</p>
+<% the_grid = @grid %>
+<h3><%= the_grid %></h3>
+<h3>*****************************************************</h3>
+<% start_time = Time.now %>
+<p>Time now: <%= start_time %></p>
+<p>"What's your best shot?"</p>
+
+<form action="/score" method="get">
+  <label for="question">Your answer: </label>
+  <input type="text" id="question" name="answer" placeholder="Write your answer here">
+  <input type="hidden" name="start" value="<%= start_time.to_i %>">
+  <input type="hidden" name="grid" value="<%= the_grid.split(" ") %>">
+  <input type="submit" value="Submit!">
+</form>
+
+
+
